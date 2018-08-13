@@ -1,2 +1,2 @@
 # stackoverflowlite
-This is the UI dev branch
+This is the backend branch, a branch hosting all backend files.
