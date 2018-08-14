@@ -6,7 +6,7 @@ import chaiHttp from 'chai-http';
 import server from '../server';
 
 const should = chai.should();
-
+chai.use(chaiHttp);
 describe('test', () => {
 	// it('should return a string', function() {
 	// 	expect('ci with travis.').to.equal('ci with travis.');
