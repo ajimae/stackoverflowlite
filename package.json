@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "babel": "babel --preset es2015 server/index.js -o dist/bundle.js",
+    "babel": "babel --preset es2015 ./test/index.spec.js -o ./dist/test.spec.js",
     "clean": "rm -rf dist",
     "build-dev": "node bin/dev",
-    "build-dist": "npm run clean && mkdir dist && babel server -s -d dist",
-    "test": "mocha --exit",
+    "build-dist": "npm run clean && mkdir dist && babel ./server -s -d dist",
+    "test": "mocha --require babel-core/register ./test --exit",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },

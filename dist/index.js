@@ -1,8 +1,11 @@
 'use strict';
 
-var x = function x(name) {
-	console.log(name);
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var myName = function myName(name) {
+	return 'Meeky';
 };
 
-x('meeky');
+exports.default = myName;
 //# sourceMappingURL=index.js.map
