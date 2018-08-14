@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "babel": "babel --preset es2015 server/index.js -o dist/bundle.js",
+    "clean": "rm -rf dist",
     "build-dev": "node bin/dev",
-    "build-dist": "mkdir dist && babel server -s -d dist",
+    "build-dist": "npm run clean && mkdir dist && babel server -s -d dist",
     "test": "mocha --exit",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
