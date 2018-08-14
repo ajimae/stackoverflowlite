@@ -1,5 +1,5 @@
-const x = (name) => {
-	console.log(name);
+const myName = () => {
+	return 'Meeky';
 };
 
-x('meeky');
+export default myName;
