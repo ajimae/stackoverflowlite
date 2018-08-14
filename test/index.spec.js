@@ -7,8 +7,13 @@ import server from '../server';
 
 const should = chai.should();
 
-describe('test', function() {
-	it('should return a string', function() {
-		expect('ci with travis.').to.equal('ci with travis.');
-	});
+describe('test', () => {
+	// it('should return a string', function() {
+	// 	expect('ci with travis.').to.equal('ci with travis.');
+	// });
+
+	chai.request(server)
+		.end((req, res) => {
+			res.should.be.a('string');
+		});
 });
