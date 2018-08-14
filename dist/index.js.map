@@ -1,0 +1,1 @@
+{"version":3,"sources":["../server/index.js"],"names":["x","name","console","log"],"mappings":";;AAAA,IAAMA,IAAI,SAAJA,CAAI,CAACC,IAAD,EAAU;AACnBC,SAAQC,GAAR,CAAYF,IAAZ;AACA,CAFD;;AAIAD,EAAE,OAAF","file":"index.js","sourcesContent":["const x = (name) => {\n\tconsole.log(name);\n};\n\nx('meeky');\n"]}
