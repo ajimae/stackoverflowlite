@@ -1,46 +1,121 @@
-body {
+html, body {
+    margin: 0;
     padding: 0;
-    /* margin: calc(70vh/2) auto; */
-    margin: calc(70vh/2) auto;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: url('../img/6-1.jpg');
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #ffffff;
-    width: fit-content;
-
+    height: 100%;
+    width: 100%;
 }
 
-#show {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    color: rgb(255, 255, 255);
-}
-
-h1 {
-    font-size: 50px;
-}
-
-#show .button {
-    font-size: 18px;
-    text-decoration: none;
+.content h2 {
     color: #fff;
-    border: 1px solid #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 20px;
 }
 
-#show .button:hover {
-    border: 1px solid #2196f3;
-    color: #ccc;
+.intro {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    background: url('../img/2.jpeg') no-repeat 50% 50%;
+    display: table;
+    top: 0;
+    background-size: cover;
 }
+
+.intro .inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;;
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.content h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 350%;
+    color: #e1efe9;
+    line-height: 100%;
+}
+
+.btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 135%;
+    color: #3a6168;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #3a6168;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    color: #cbdfd6;
+    border: 1px solid #cbdfd6;
+    transition: all 0.5s;
+}
+
+footer p {
+    font-size: 150%;
+    line-height: 120%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+
+/*--- Media Queries --*/
+@media screen and (max-width: 900px) {
+    .content {
+        padding-bottom: 20%;
+    }
+    .content h1 {
+        font-size: 250%;
+    }
+    .btn {
+        font-size: 90%;
+        padding: 9px 17px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .content {
+        padding-bottom: 15%;
+    }
+    .content h1 {
+        font-size: 200%;
+    }
+    .btn {
+        font-size: 75%;
+        padding: 9px 17px;
+    }
+    footer p {
+        font-size: 120%;
+        line-height: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+	.content {
+        padding-bottom: 10%;
+    }
+    .content h1 {
+        font-size: 150%;
+    }
+    .btn {
+        font-size: 80%;
+        padding: 6px 14px;
+    }
+    footer p {
+        font-size: 100%;
+        line-height: 100%;
+    }
+}
+
 
 header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: absolute;
     top: 0;
     left: 0;
@@ -54,7 +129,7 @@ header .logo {
     color: #fff;
     height: 40px;
     line-height: 40px;
-    font-size: 24px;
+    font-size: 100%;
     float: left;
     font-weight: bold;
 }
@@ -128,4 +203,150 @@ header nav ul li a:hover {
     header nav ul li a {
         border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
     }
+}
+
+/*Login and sign Up page*/
+input[type="password"], input[type="email"], input[type="text"] {
+    width: 40%;
+    height: 20px;
+    border: 0.5px solid #ccc;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(145, 145, 145, 0.2);
+}
+
+input[type="submit"] {
+    background: transparent;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 30px;
+    width: 42%;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid #ccc;
+    color: #ccc;
+}
+
+::-moz-placeholder {color: #fff; opacity: 1;}
+
+:-ms-input-placeholder {color: #fff;}
+
+::-ms-input-placeholder {color: rgb(255, 255, 255);}
+
+::placeholder {
+    color: #fff;
+}
+
+
+/*Activity page*/
+p {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  
+  .grid-wrapper {
+    max-width: 1000px;
+    margin-top: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .grid-wrapper {
+      display: flex;
+    }
+  
+    #content-main {
+      margin: 0 4rem 0 1rem;
+      border: 1px solid #fff;
+    }
+  
+    #sidebar {
+      flex: 1 0 300px;
+    }
+  }
+  @supports(display: grid) {
+    @media (min-width: 768px) {
+      .grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        grid-template-rows: auto;
+        grid-gap: 4rem;
+      }
+  
+      #content-main {
+        margin: 0 0 0 1rem;
+    }
+  }
+}
+
+.status {
+    font-size: 10.5px;
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+.show {
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.show h1 {
+    font-size: 50px;
+}
+
+.show a {
+    font-size: 13.5px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.show a:hover {
+    color: #fff;
+    text-decoration: underline;  
+}
+
+section .article {
+    /* border: 1px 0 1px 0; */
+    border-top:  1px solid rgb(146, 146, 146);
+    /* border-bottom: 1px solid rgb(146, 146, 146); */
+}
+
+.grid-wrapper {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#content h4 {
+    color: #ccc;
+}
+
+section footer {
+    text-align: right;
+}
+
+.show .questions a {
+    color: #fff;
+}
+
+.show .questions a:hover {
+    color: #ccc;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11.5px;
+    background: #676f7c;
+    padding: 15px;
+    color: #b4b4b4;
 }
