@@ -28,6 +28,10 @@ html, body {
     padding-bottom: 10%;
 }
 
+.inner .constraint {
+    min-width: 500px;
+}
+
 .content h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 350%;
@@ -526,8 +530,7 @@ article a {
 
 /*Profile page*/
 .card {
-    width: 32%;
-    max-width: 420px;
+    width: 420px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -654,7 +657,7 @@ article a {
     font-size: 11px;
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     .right-section {
         display: block;
         width: 100%;
@@ -662,7 +665,7 @@ article a {
     .left-section {
         width: 100%
     }
-}
+} */
 
 #edit {
     background: rgba(185, 190, 189, 0.95);
