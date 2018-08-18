@@ -1,0 +1,23 @@
+import express from 'express';
+import bodyParser from 'body-parser';
+import routes from './routes/routes';
+
+
+// Express initialization
+const server = express();
+server.use(bodyParser.urlencoded({
+	extended: true,
+}));
+
+server.use(bodyParser.json());
+
+// Route
+routes(server);
+
+// Create a server using the express framework
+const port = 3000 || process.env.PORT;
+server.listen(port, () => {
+	console.log(`Server listening on port ${port}`);
+});
+
+export default server;
