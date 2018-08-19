@@ -1,5 +1,4 @@
 import Users from '../data/user.structure';
-//import Questions from '../data/question.structures';
 
 class UserController {
     
@@ -50,20 +49,23 @@ class UserController {
             });
         }
 
-        Users.map((value) => {
-            if(value.email == req.body.email)
+        for(let value of Users) {
+            if(value.email == req.body.email) {
                 return res.status(406).json({ // Not accepted
                     message: "The email address already exists."
                 });
-        });
+            }
+        }
 
+
+        var x = 0;
         const newUser = {
-            id: parseInt(Users[Users.length - 1]) + 1,
+            id: x = (Users.length == 0) ? 1 : parseInt(Users[Users.length - 1].id + 1),
             email: req.body.email,
             username: req.body.username,
             password: req.body.password
         }
-
+        console.log(newUser.id);
         Users.push(newUser);
         return res.status(201).json({
             message: "New user created successfully."

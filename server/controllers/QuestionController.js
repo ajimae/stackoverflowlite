@@ -49,8 +49,9 @@ class QuestionController {
             });
         }
         
+        var x = 0;
         const newQuestion = {
-            id: `${parseInt(Questions[Questions.length - 1].id) + 1}`,
+            id: x = (Questions.length == 0) ? 1 : parseInt(Questions[Questions.length - 1].id + 1),
             title: req.body.title,
             description: req.body.description,
             asker: req.body.asker,
