@@ -58,7 +58,7 @@ class UserController {
         });
 
         const newUser = {
-            id: `${Users[Users.length - 1] + 1}`,
+            id: parseInt(Users[Users.length - 1]) + 1,
             email: req.body.email,
             username: req.body.username,
             password: req.body.password
