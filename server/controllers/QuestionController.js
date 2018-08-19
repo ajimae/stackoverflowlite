@@ -1,18 +1,45 @@
 import Questions from '../data/question.structures';
+import { isNumber } from 'util';
 
 class QuestionController {
     getAllQuestions = (req, res) => {
+        if(Questions.length == 0 || Questions.length == undefined) {
+            return res.status(404).json({
+                message: "No questions to display"
+            });
+        }
+
         return res.status(200).json(Questions); // Ok
     }
 
     getQuestion = (req, res) => {
-        if(req.params.questionId > Questions.length || req.params.questionId <= 0) {
+        const _id = parseInt(req.params.questionId)
+        if( _id <= 0) {
             return res.status(404).json({   // Not found
-                message: "The specified question ID was not found on this server",
+                message: "No question found matching the specified ID",
             });
         }
-        const _id = parseInt(req.params.questionId) - 1;
-        return res.status(200).json(Questions[_id]);
+
+        if(Questions.length == 0 || Questions.length == undefined) {
+            return res.status(404).json({
+                message: "No questions to display"
+            });
+        }
+
+        if(isNaN(_id)) {
+            return res.status(400).json({
+                message: "Invalid questionID"
+            });
+        }
+        for(let value of Questions) {
+            if(value.id == _id) {
+                return res.status(200).json(Questions[_id]);
+            }
+        }
+
+        return res.status(404).json({
+            message: "Question not found matching the specified ID"
+        });
     }
 
     createQuestion = (req, res) => {
@@ -40,52 +67,67 @@ class QuestionController {
     }
 
     editQuestion = (req, res) => { //Validate this method
-        const _id = parseInt(req.params.questionId) - 1;
-        if(!req.body.title || !req.body.description || !req.body.asker || !req.body.votes || !req.body.views || !req.body.tags || !req.body.timestamp) {
+        const _id = parseInt(req.params.questionId);
+        if(!req.body.title || !req.body.description) {
             return res.status(400).json({   // Bad Request
-                message: "The title and/or body both cannot be blanck."
+                message: "The title and/or description cannot be empty."
             });
         }
 
-        if(isNaN(_id) || req.params.questionId <= 0) {
-            return res.status(404).json({   // Not found
+        if(isNaN(_id) || _id <= 0) {
+            return res.status(400).json({   // Bad request
+                message: "The requested update was not successful, the specified question ID is not valid",
+            });
+        }else {
+        }
+
+        if(_id != '' && !isNaN(_id) && _id > 0) {
+             for(let value of Questions) {
+                if(_id == value.id) {
+                    const updatedQuestion = Questions[(_id) - 1] = req.body;
+                    updatedQuestion.id = _id;
+                    updatedQuestion.timestamp = `Updated ${req.body.timestamp}mins ago`;
+                    return res.status(200).json({
+                        message: "Question successfully updated."
+                    });
+                }
+            }
+
+            return res.status(400).json({   // Bad request found
                 message: "The requested update was not successful, the specified question ID was not found on this server",
             });
         }
-        Questions.map((value) => {  //Check to see the question ID really exists.
-            if(value.id != questionId) {
-                return res.status(404).json({   // Not found
-                    message: "The requested update was not successful, the specified question ID was not found on this server",
-                });
-            }
-        });
-
-        const updatedQuestion = Questions[_id] = req.body;
-        updatedQuestion.id = _id;
-        updatedQuestion.timestamp = `Updated ${req.body.timestamp}mins ago`;
-        return res.status(200).json({
-            message: "Question successfully updated."
-        });
     }
+    
 
     deleteQuestion = (req, res) => {
-        const index = parseInt(req.params.questionId) - 1;
-        if(isNaN(index) || req.params.questionId > Questions.length || req.params.questionId <= 0) {
+        const index = parseInt(req.params.questionId);
+        if(index <= 0) {
             return res.status(404).json({   // Not found
                 message: "The question could not be deleted, the specified question ID was not found on this server",
             });
-        }else {
-            const result = Questions.splice(index, 1);  // Write a code to delete the associated answers
-            if(!result) {
-                return res.status(501).json({   // Not implemented
-                    message: "Question could not be deleted at this time, please try again later."
-                });
-            }else {
-                return res.status(200).json({
-                    message: "The question was successfully deleted."
-                });
+        }
+        if(isNaN(index)) {
+            return res.status(404).json({   // Not found
+                message: "Invalid question ID",
+            });
+        }
+
+        for(let value of Questions) {
+            if(value.id == index) {
+                let needle = Questions.indexOf(value);
+                const result = Questions.splice(needle, 1);  // Write a code to delete the associated answers
+                if(!result) {
+                    return res.status(501).json({   // Not implemented
+                        message: "Question could not be deleted at this time, please try again later."
+                    });
+                }
             }
         }
+        
+        return res.status(200).json({
+            message: "The question was successfully deleted."
+        });
     }
 }
 

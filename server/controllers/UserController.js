@@ -1,11 +1,12 @@
 import Users from '../data/user.structure';
+//import Questions from '../data/question.structures';
 
 class UserController {
     
     // Get all users
     getAllUsers = (req, res) => {
-        if(!Users || Users.length == 0) {
-            return res.status(200).json({
+        if(Users.length === undefined || Users.length == 0) {
+            return res.status(404).json({
                 message: "No registered user"
             })
         }
@@ -14,25 +15,31 @@ class UserController {
 
     // User login
     loginUser = (req, res) => {
-        if(!req.body.email || !req.body.password) { //more user login validations
+        if(Users.length == 0 || Users.length == undefined) {
+            
+            return res.status(404).json({
+                message: "No registered user"
+            });
+        }
+        
+        if(!req.body.email || !req.body.password) { 
             return res.status(400).json({
                 message: "All fields are required."
             });
         }
 
-        if(req.body.email != "" && req.body.password != "") {
-            Users.map((value) => {
+        if(req.body.email != '' && req.body.password != '') {
+            for(let value of Users) {
                 if(value.email == req.body.email && value.password == req.body.password) {
                     return res.status(200).json({
                         message: "User login successful"
                     });
                 }
-            });
-        }else {
-            return res.status(401).json({   // Unauthorized
-                message: "Wrong email or password"
-            });
+            }
         }
+        // return res.status(401).json({   // Unauthorized
+        //     message: "Wrong email or password"
+        // });
     }
 
     // User creation
@@ -45,7 +52,7 @@ class UserController {
 
         Users.map((value) => {
             if(value.email == req.body.email)
-                return res.status(406).json({
+                return res.status(406).json({ // Not accepted
                     message: "The email address already exists."
                 });
         });
