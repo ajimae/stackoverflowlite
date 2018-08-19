@@ -2,6 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Andela Challenge 2",
+  "engines": {
+    "node": "v8.11.1",
+    "npm": "6.4.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": " babel-node ./server/index.js --exec babel-node --preset es2015",
