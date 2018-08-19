@@ -15,7 +15,7 @@ server.use(bodyParser.json());
 routes(server);
 
 // Create a server using the express framework
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 server.listen(port, () => {
 	console.log(`Server listening on port ${port}`);
 });
