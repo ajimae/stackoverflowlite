@@ -9,7 +9,6 @@ import server from '../server/index';
 const should = chai.should();
 chai.use(chaiHttp);
 
-const nullUsers = [];
 
 
 // User route controller
@@ -158,6 +157,18 @@ describe('Question route controller', () => {
 			done();
 		});
 	});
+	// it('Should return 404 for a an empty or null questions array/array', (done) => {
+	// 	chai.request(server)
+	// 	.get('/api/v1/questions')
+	// 	.end((req, res) => {
+	// 		res.should.have.status(404);
+	// 		res.should.be.json;
+	// 		res.body.should.be.a('Object');
+	// 		res.body[0].id.should.be.a('Number');
+	// 		res.body[0].title.should.be.a('String');
+	// 		done();
+	// 	});
+	// });
 	it('Should return 400 for PUT /questions with incomplete parameters', (done) => {
 		const values = {
 			title: 'What is 4.5! (i.e. 4.5 factorial)',

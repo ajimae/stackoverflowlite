@@ -49,7 +49,7 @@ class QuestionController {
             });
         }
         
-        var x = 0;
+        let x = 0;
         const newQuestion = {
             id: x = (Questions.length == 0) ? 1 : parseInt(Questions[Questions.length - 1].id + 1),
             title: req.body.title,

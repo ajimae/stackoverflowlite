@@ -58,7 +58,7 @@ class UserController {
         }
 
 
-        var x = 0;
+        let x = 0;
         const newUser = {
             id: x = (Users.length == 0) ? 1 : parseInt(Users[Users.length - 1].id + 1),
             email: req.body.email,

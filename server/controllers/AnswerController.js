@@ -13,11 +13,17 @@ class AnswerController {
                 message: "The specified answer ID is invalid"
             });
         }else {
-            Answers.map((value, index, answerArray) => {
+            // Answers.map((value, index, answerArray) => {
+            //     if(value.id == _id) {
+            //         return res.status(200).json(answerArray[index]);
+            //     }
+            // });
+
+            for(let value of Answers) {
                 if(value.id == _id) {
-                    return res.status(200).json(answerArray[index]);
+                    return res.status(200).json(value);
                 }
-            });
+            }
 
             return res.status(404).json({   // Not found
                 message: "The specified answer ID was not found on this server"
