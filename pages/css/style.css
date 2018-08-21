@@ -43,10 +43,10 @@ html, body {
 .btn {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 135%;
-    color: #fff;
+    color: #3a6168;
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid #fff;
+    border: 1px solid #3a6168;
     padding: 10px 20px;
     border-radius: 10px;
 }
@@ -217,22 +217,21 @@ input[type="password"], input[type="email"], input[type="text"] {
 }
 
 input[type="submit"] {
-    background: rgb(197, 197, 197);
+    background: transparent;
     font-size: 14px;
     text-decoration: none;
-    color: #333;
+    color: #fff;
     border: 1px solid #fff;
     padding: 5px;
     border-radius: 5px;
     margin-top: 20px;
     height: 30px;
-    width: 30%;
+    width: 42%;
 }
 
 input[type="submit"]:hover {
-    background: #fff;
-    border: 1px solid #333;
-    color: #333;
+    border: 1px solid #ccc;
+    color: #ccc;
 }
 
 ::-moz-placeholder {color: #fff; opacity: 1;}

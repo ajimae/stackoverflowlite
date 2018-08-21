@@ -1,7 +1,7 @@
 /* start editing from here */
-html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,section {margin:0;padding:0;border:0;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
-ol,ul{list-style:none;margin:0;padding:0;}
+ol,ul{margin:0;padding:0;}
 
 img{max-width:100%;}
 /*end reset*/
@@ -10,8 +10,7 @@ img{max-width:100%;}
 body {
 
 	font-family: 'Noto Sans', sans-serif;
-    background:#A75101;
-    font-size: 100%;
+    background:darkgrey
 }
 a {
   text-decoration: none;
@@ -106,6 +105,11 @@ h1 {
     background: #131137;
     padding:1.5em 0;
 }
+
+.profile-follow ul {
+    list-style-type: none;
+}
+
 .profile-follow li {
     text-align: center;
     float: left;
@@ -127,15 +131,28 @@ h1 {
 }
 
 
+/*question and answer lists*/
+recent_questions, recent_answers {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 /*--//main--*/
 .login-top {
     padding: 2em 2em;
-	    background: #fff;
+    background: #fff;
+    text-align: left;
 }
+
+.login-top {
+    font-size: 0.9em;
+    line-height: 1.2em;
+}
+
 .clear{
    clear:both;
 }
-/*--meadia quries start here--*/
+/*--meadia quries start 2ere--*/
 @media(max-width:1440px){
 
 .profile-img {
