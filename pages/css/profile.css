@@ -1,0 +1,318 @@
+/* start editing from here */
+html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,section {margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+
+img{max-width:100%;}
+/*end reset*/
+/*--login start here--*/
+
+body {
+
+	font-family: 'Noto Sans', sans-serif;
+    background:#A75101;
+    font-size: 100%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*--header start here--*/
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+    margin: 1em 0em 1em 0em;
+    font-family: 'Montserrat', sans-serif;}
+
+
+/*--teddy-bear--*/
+
+.profile-text img {
+    border-radius: 70px;
+    border: 3px solid #ee5a32;
+    padding: 2px;
+}
+.profile-top {
+    background: #fff;
+    padding: 1.5em;
+}
+.profile-text {
+    float: left;
+    width: 57%;
+}
+.profile-text2 {
+    float: right;
+    width: 33%;
+	margin-top: 1.5em;
+}
+.profile-img {
+    float: left;
+    width: 45%;
+}
+.profile-text1 {
+    float: left;
+    width: 55%;
+    margin-top: 0.5em;
+    text-align: left;
+}
+
+.profile-text1 h4 {
+    color: #222;
+}
+
+.profile-text h4 {
+    color: #131137;
+    font-size: 1.5em;
+    font-weight: 600;
+	    font-family: 'Montserrat', sans-serif;
+}
+.profile-text p {
+    color: #999;
+    font-size: 0.9em;
+    margin:0.5em 0 0.8em;
+}
+.profile-text a{
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+    background: #EF8D32;
+    padding: 0.5em 0.8em;
+    display: inline-block;
+}
+.profile-text a:hover {
+    background: #131137;
+}
+.profile-text a i{
+    background: url(../images/tw.png) no-repeat 0px 2px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+.profile-text2 p{
+	color: #999;
+    font-size: 0.9em;
+    line-height: 1.7em;
+    text-align: center;
+}
+.profile-follow {
+    background: #131137;
+    padding:1.5em 0;
+}
+.profile-follow li {
+    text-align: center;
+    float: left;
+    width: 33%;
+}
+.profile-follow li h3 {
+  font-size: 2em;
+  color: #fff;
+  font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+}
+.profile-follow li p {
+  font-size: 1em;
+  color: #fff;
+}
+.profile-follow li:nth-child(2) {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+
+/*--//main--*/
+.login-top {
+    padding: 2em 2em;
+	    background: #fff;
+}
+.clear{
+   clear:both;
+}
+/*--meadia quries start here--*/
+@media(max-width:1440px){
+
+.profile-img {
+    width: 48%;
+}
+.profile-text1 {
+    width: 52%;
+}
+
+}
+@media(max-width:1366px){
+    .intro {
+        margin-top: 5%;
+    }
+.profile-text {
+    width: 66%;
+}
+.profile-text p {
+    font-size: 0.87em;
+}
+.profile-text2 {
+    margin-top: 1.5em;
+}
+
+}
+@media(max-width:1280px){
+    .intro {
+        margin-top: 4%;
+    }
+.profile-text p {
+    font-size: 0.8em;
+}
+
+}
+@media(max-width:1024px){
+    .intro {
+        margin-top: 4%;
+    }
+.profile-text2 p {
+    font-size: 0.8em;
+
+}
+}
+@media(max-width:991px){
+    .intro {
+        margin-top: 5%;
+    }
+}
+@media(max-width:800px){
+    .intro {
+        margin-top: 5%;
+    }
+}
+@media(max-width:768px){
+    .intro {
+        margin-top: 5%;
+    }
+}
+@media (max-width: 736px){
+    .intro {
+        margin-top: 4%;
+    }
+.profile-text2 {
+    float: none;
+    width: 100%;
+    margin-top: 1.5em;
+    text-align: center;
+}
+.profile-text {
+    width: 100%;
+    float: left;
+}
+
+}
+
+@media (max-width: 640px){
+h1 {
+    font-size: 2.5em;
+}
+
+}
+@media (max-width: 600px){
+    .intro {
+        margin-top: 6%;
+    }
+.profile-text a {
+    font-size: 0.9em;
+}
+.profile-follow li h3 {
+    font-size: 1.5em;
+}
+.profile-text img {
+	width:100%;
+}
+.profile-img {
+    width: 40%;
+    float: none;
+    margin: 0 auto;
+}
+.profile-text1 {
+    width: 100%;
+    text-align: center;
+    float: none;
+    margin-bottom: 1em;
+}
+
+}
+@media (max-width: 568px){
+    .intro {
+        margin-top: 8%;
+    }
+.login-bottom a {
+    font-size: 0.9em;
+}
+.profile-follow li p {
+    font-size: 0.9em;
+}
+
+}
+@media (max-width: 480px){
+    .intro {
+        margin-top: 8%;
+    }
+h1 {
+    font-size: 2.2em;
+}
+}
+@media (max-width: 414px){
+    .intro {
+        margin-top: 15%;
+    }
+h1 {
+    font-size: 2em;
+}
+}
+@media (max-width: 384px){
+    .intro {
+        margin-top: 16%;
+    }
+}
+@media (max-width: 375px){
+
+}
+@media (max-width: 320px){
+h1 {
+    font-size: 1.7em;
+}
+.profile-top {
+    padding: 1em;
+}
+.profile-text h4 {
+    font-size: 1.2em;
+}
+.profile-follow li h3 {
+    font-size: 1.2em;
+}
+.profile-follow li p {
+    font-size: 0.8em;
+}
+.login-top {
+    padding: 1em;
+}
+.login-top input[type="text"], .login-top input[type="password"] {
+    font-size: 0.8em;
+    width: 85%;
+    margin-bottom: 1em;
+}
+.login-top input[type="checkbox"]+label {
+    font-size: 0.8em;
+}
+.login-bottom {
+    margin-top: 1em;
+}
+.login-bottom a {
+    font-size: 0.8em;
+}
+.login-bottom input[type="submit"] {
+    padding: 8px 15px;
+}
+
+}
