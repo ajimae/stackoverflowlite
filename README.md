@@ -1,5 +1,6 @@
 # stackoverflowlite
 
+
 ### Core functionalities
 * View landing page
 * Create account
