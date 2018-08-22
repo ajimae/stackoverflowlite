@@ -431,10 +431,9 @@ tbody tr td:hover {
 
 /**view.html page*/
 textarea {
-    margin-bottom: 15px;
-    margin-top: 0px;
+    margin: 10px;
     padding: 10px;
-    width: 100%;
+    width: 70%;
     background: transparent;
     border-radius: 5px;
     height: 140px;
@@ -442,8 +441,8 @@ textarea {
     color: #fff;
 }
 
-::placeholder {
-    color: #fff;
+input[type="submit"] ::placeholder {
+    color: #333;
 }
 
 span a, .widget-content a {

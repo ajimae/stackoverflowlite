@@ -173,6 +173,8 @@ header nav ul li a:hover {
     display: none;
 }
 
+
+
 @media(max-width: 991px) {
     header {
         padding: 0 20px;
@@ -217,11 +219,11 @@ input[type="password"], input[type="email"], input[type="text"] {
 }
 
 input[type="submit"] {
-    background: rgb(197, 197, 197);
+    background: rgb(44, 54, 80);
     font-size: 14px;
     text-decoration: none;
     color: #333;
-    border: 1px solid #fff;
+    border: 1px solid #333;
     padding: 5px;
     border-radius: 5px;
     margin-top: 20px;

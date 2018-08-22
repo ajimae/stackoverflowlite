@@ -217,7 +217,7 @@ input[type="password"], input[type="email"], input[type="text"] {
 }
 
 input[type="submit"] {
-    background: transparent;
+    background: #3a6168;
     font-size: 14px;
     text-decoration: none;
     color: #fff;
