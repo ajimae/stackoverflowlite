@@ -1,7 +1,6 @@
-import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
-
+import express from 'express';
 
 // Express initialization
 const server = express();
