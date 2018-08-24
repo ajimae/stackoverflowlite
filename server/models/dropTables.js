@@ -2,7 +2,8 @@ import db from '../../db';
 
 
 const query1 = 'DROP TABLE IF EXISTS users';
-const query2 = 'DROP TABLE IF EXISTS entries';
+const query2 = 'DROP TABLE IF EXISTS questions';
+const query2 = 'DROP TABLE IF EXISTS answers';
 
 db.query(query1, (error) => {
   if (error) throw error;

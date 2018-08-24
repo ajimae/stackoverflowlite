@@ -7,11 +7,6 @@ import validateEntry from '../middlewares/Validation';
 import validateUser from '../middlewares/UserValidation';
 import validateUser2 from '../middlewares/LoginValidation';
 
-
-// const Routes = (server) => {
-//     // Home route
-//     server.get('/', homeController.home);
-
 const Routes = (server) => {
     server.get('/', homeController.home);
     server.get('/api/v1/questions/:id', auth.verifyUserToken, questionController.getQuestion);
