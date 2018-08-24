@@ -1,0 +1,1 @@
+{"version":3,"sources":["../server/index.js"],"names":["myName","name"],"mappings":";;;;;AAAA,IAAMA,SAAS,SAATA,MAAS,CAACC,IAAD,EAAU;AACxB,QAAO,OAAP;AACA,CAFD;;kBAIeD,M","file":"index.js","sourcesContent":["const myName = (name) => {\n\treturn 'Meeky';\n};\n\nexport default myName;\n"]}

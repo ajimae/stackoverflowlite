@@ -8,7 +8,12 @@
   },
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "babel-node ./server/index.js --exec babel-node --preset es2015",
+=======
+    "start": "npm run migrate && babel-node ./server/index.js --exec babel-node --preset es2015",
+    "migrate": "node -r babel-register -r ./node_modules/dotenv/config ./server/models",
+>>>>>>> server
     "babel": "babel --preset es2015 ./test/index.spec.js -o ./dist/test.spec.js",
     "clean": "rm -rf dist",
     "build-dev": "node bin/dev",
@@ -42,7 +47,11 @@
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
+<<<<<<< HEAD
     "eslint": "^5.4.0",
+=======
+    "eslint": "^5.3.0",
+>>>>>>> server
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "istanbul": "^0.4.5",

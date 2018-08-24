@@ -13,9 +13,18 @@ databaseConfig.development = {
 };
 
 databaseConfig.test = {
+<<<<<<< HEAD
   connectionString: process.env.DIARY_TEST,
 };
 
 // databaseConfig.secret = process.env.SECRET;
+=======
+  //connectionString: process.env.stackoverflow,
+  connectionString: 'postgresql://root:123@localhost:5432/stackoverflowlite',
+};
+
+databaseConfig.secret = process.env.SECRET;
+console.log(databaseConfig.secret);
+>>>>>>> server
 
 export default databaseConfig;

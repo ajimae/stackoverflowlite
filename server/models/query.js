@@ -19,4 +19,7 @@ export default (db, dbName, params, callback) => {
     if (callback) callback();
   });
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> server
