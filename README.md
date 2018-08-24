@@ -8,4 +8,3 @@ Coverage](https://api.codeclimate.com/v1/badges/e55c8db62854e13a8a96/test_covera
 Status](https://coveralls.io/repos/github/ajimae/stackoverflowlite/badge.svg?branch=server)](https://coveralls.io/github/ajimae/stackoverflowlite?branch=master)
 
 This is the backend branch, a branch hosting all backend files.
-
