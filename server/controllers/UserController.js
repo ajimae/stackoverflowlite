@@ -22,14 +22,15 @@ class UserController {
                        res.status(409).json({ error: `Email ${req.body.email} already exists` });
                   } else {
                       const hash = bcrypt.hashSync(req.body.password, 10);
-                      const query = { text: `insert into users ( name, email, password ) values ($1, $2, $3)returning id, name, email`,
-                          values: [ req.body.name, req.body.email, hash],
+                      const query = { text: `insert into users (name, email, username, password) values ($1, $2, $3, $4) returning id, name, email, username`,
+                          values: [ req.body.name, req.body.email, req.body.username, hash],
                       };
                       return client.query(query, (error3, res3) => {
                           if (error3) {
                                res.status(400).json({ error: 'Something went wrong with the process, Please try later3'});
                           } else {
                               const createdUser = res3.rows[0];
+                              console.log(res3.rows[0]);
                               const userToken = auth.authenticate(createdUser);
                               return res.status(201).send({
                                   success: 'success',

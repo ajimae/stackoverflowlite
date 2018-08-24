@@ -1,22 +1,23 @@
-// import dotEnv from 'dotenv';
+import dotEnv from 'dotenv';
 
-// dotEnv.config();
+dotEnv.config();
 
-// const databaseConfig = {};
+const databaseConfig = {};
 
-// databaseConfig.development = {
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASSWORD,
-//   port: process.env.DB_PORT,
-// };
+databaseConfig.development = {
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+};
 
-// databaseConfig.test = {
-//   //connectionString: process.env.stackoverflow,
-//   connectionString: 'postgresql://postgres:123@database.server.com:5432/postgres',
-// };
+databaseConfig.test = {
+  //connectionString: process.env.stackoverflow,
+  connectionString: 'postgresql://root:123@localhost:5432/stackoverflowlite',
+};
 
-// // databaseConfig.secret = process.env.SECRET;
+databaseConfig.secret = process.env.SECRET;
+console.log(databaseConfig.secret);
 
-// export default databaseConfig;
+export default databaseConfig;

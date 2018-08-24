@@ -1,16 +1,16 @@
-// import { Pool } from 'pg';
+import { Pool } from 'pg';
 
-// import databaseConfig from './config';
+import databaseConfig from './config';
 
-// //const env = process.env.NODE_ENV;
-// const env = 'test';
+//const env = process.env.NODE_ENV;
+const env = 'test';
 
-// let db;
+let db;
 
-// if (true) {
-//   db = new Pool(databaseConfig.test);
-// } else {
-//   db = new Pool(databaseConfig.development);
-// }
+if (env === 'test') {
+  db = new Pool(databaseConfig.test);
+} else {
+  db = new Pool(databaseConfig.development);
+}
 
-// export default db;
+export default db;
