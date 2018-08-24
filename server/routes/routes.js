@@ -13,6 +13,12 @@ const Routes = (server) => {
 
     // Post a question
     server.post('/api/v1/questions', questionController.createQuestion);
+  
+    // Get a single question
+    server.get('/api/v1/questions/:questionId', questionController.getQuestion);
+  
+    // Get all questions
+    server.get('/api/v1/questions', questionController.getAllQuestions);
 
 };
 
