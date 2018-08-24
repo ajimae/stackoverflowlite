@@ -9,8 +9,6 @@ import server from '../server/index';
 const should = chai.should();
 chai.use(chaiHttp);
 
-
-
 // Home route controller
 describe('Home route controller', () => {
 	it('Should return the home route at /', (done) => {
