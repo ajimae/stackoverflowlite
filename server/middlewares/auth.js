@@ -32,6 +32,7 @@ const auth = {
     if (!token) {
       return res.status(401).json({ error: 'No token provided.' });
     }
+    
     const decoded = auth.verifyToken(token);
     if (decoded.error) {
       return res.status(500).json({ error: 'Failed to authenticate token.' });
