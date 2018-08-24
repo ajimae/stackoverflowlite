@@ -23,27 +23,34 @@ describe('Home route controller', () => {
 	});
 });
 
-
 // Questions controller
 describe('Question route controller', () => {
-	it('Should return 200 for GET /questins', (done) => {
+	it('should return 404 for GET /questions/:questionId with an invalid ID', (done) => {
 		chai.request(server)
-		.get('/api/v1/questions')
-		.end((req, res) => {
-			res.should.have.status(200);
+		.get('/api/v1/questions/a')
+		.end((err, res) => {
+			res.should.have.status(400);
+			res.body.should.be.a('object');
 			res.should.be.json;
-			res.body.should.be.a('Array');
-			res.body[0].id.should.be.a('Number');
-			res.body[0].title.should.be.a('String');
 			done();
 		});
 	});
-	it('Should return 404 for GET /question', (done) => {
+	it('should return 404 for GET /questions/:questionId with an unknown ID', (done) => {
 		chai.request(server)
-		.get('/api/v1/question')
-		.end((req, res) => {
+		.get('/api/v1/questions/100')
+		.end((err, res) => {
+			res.should.have.status(404);
+			res.body.should.be.a('object');
+			res.should.be.json;
+			done();
+		});
+	});	
+	it('should return 404 for GET /questions/:questionId with an unknown url', (done) => {
+		chai.request(server)
+		.get('/api/v1/question/100') //removed the 's' in /questions/..
+		.end((err, res) => {
 			res.should.have.status(404);
 			done();
 		});
-	});
+	});	
 });
