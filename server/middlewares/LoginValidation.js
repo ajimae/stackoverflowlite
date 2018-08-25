@@ -1,5 +1,5 @@
 /**
- * Created by obulaworld on 7/26/18.
+ * Created by Chukwuemeka on 25/05/2018.
  */
 
 export default (req, res, next) => {
@@ -19,7 +19,7 @@ export default (req, res, next) => {
     if(values.password && !values.password.replace(/\s/g, '').length) {
         errors.password = 'Password can not be blank'; pass = false;
     }
-    console.log(pass);
+    //console.log(pass);
     if (pass === false) { res.status(400).json({ error: errors }); } else {
         req.body.email = req.body.email.trim();
         req.body.password = req.body.password.trim();

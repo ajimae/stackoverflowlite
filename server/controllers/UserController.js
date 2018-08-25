@@ -42,6 +42,33 @@ class UserController {
             }
         });
     }
+
+    loginUser (req, res) {
+        const query = {
+          text: 'select id, name, password from users where email = $1 LIMIT 1',
+          values: [req.body.email ],
+        };
+        
+        db.query(query, (error1, response) => {
+          if (error1) {
+              res.status(400).json({ error: 'Something went wrong with the process1, Please try later'});
+          }else{
+              const user = response.rows[0];
+              if (!response.rows.length) {
+                  return res.status(401).send({ error: 'Invalid Email or Password' });
+              }else{
+                  const check = bcrypt.compareSync(req.body.password, user.password);
+                  if (check) {
+                      const token = auth.authenticate(user);
+                      delete user.password;
+                      return res.status(200).send({ success: 'success', user, token });
+                  } else {
+                      return res.status(401).send({ error: 'Invalid Email or Password' });
+                  }
+              }
+          }
+        });
+      }
 }
 
 export default new UserController();
