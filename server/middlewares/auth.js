@@ -18,7 +18,7 @@ const auth = {
   verifyToken(token) {
     let decoded = {};
     try {
-      decoded.payload = jwt.verify(token, process.env.SECRET);
+      decoded.payload = jwt.verify(token, 'secret');
     } catch (error) {
       decoded = {
         error: error.message,
