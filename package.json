@@ -8,7 +8,7 @@
     },
     "main": "index.js",
     "scripts": {
-        "start": "babel-node ./server/index.js --exec babel-node --preset es2015",
+        "start": "npm run migrate && babel-node ./server/index.js --exec babel-node --preset es2015",
         "migrate": "node -r babel-register -r ./node_modules/dotenv/config ./server/models",
         "babel": "babel --preset es2015 ./test/index.spec.js -o ./dist/test.spec.js",
         "clean": "rm -rf dist",
@@ -27,10 +27,16 @@
         "babel-core": "^6.26.3",
         "babel-istanbul": "^0.12.2",
         "babel-preset-es2015": "^6.24.1",
+        "bcrypt": "^3.0.0",
         "body-parser": "^1.18.3",
         "chai-http": "^4.0.0",
+        "cors": "^2.8.4",
+        "dotenv": "^6.0.0",
         "express": "^4.16.3",
-        "nyc": "^12.0.2"
+        "joi": "^13.6.0",
+        "jsonwebtoken": "^8.3.0",
+        "nyc": "^12.0.2",
+        "pg": "^7.4.3"
     },
     "devDependencies": {
         "babel-preset-stage-2": "^6.24.1",
