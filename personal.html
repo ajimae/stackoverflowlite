@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Full Screen Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/modal.css">
+	<link rel="stylesheet" type="text/css" href="pages/css/style2.css">
+	<link rel="stylesheet" type="text/css" href="pages/css/style1.css">
+	<link rel="stylesheet" type="text/css" href="pages/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <em>StackOverFlow</em>
+        </div>
+        <nav class="">
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li><a href="activity.html">Activity</a></li>
+                <li>
+                    <a href="index.html">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="menu-toggle"><img src="img/icon.png" width="50" height="50"></div>
+    </header>
+    <section class="intro">
+        <div class="inner">
+            <div class="content">
+			<div class="profile">
+				<div class="profile-top">
+				<div class="profile-text">
+					<div class="profile-img">
+						<img src="img/avatar.png" alt="" >
+					</div>
+					<div class="profile-text1">
+						<h4>Chukwuemeka</h4>
+						<p>Developer</p>
+						<a href="#" data-target="simpleModal_6" data-toggle="modal1">Edit Prifile</a>
+						<a href="#" data-target="simpleModal_6" data-toggle="modal2">Post Questions</a>
+					</div>
+					<div class="clear"></div>
+			    </div>
+				<div class="profile-text2">
+					<!-- <p>Contrary to popular belief, Lorem Ipsum is not simply   </p> -->
+				</div>
+				<div class="clear"></div>
+				</div>
+			   <div class="profile-follow">
+			    	<ul>
+			    		<li class="folw-h"><h3>250</h3>
+			    			<p>Questions asked</p>
+			    		</li>
+						<li ><h3>288</h3>
+			    			<p>Questions Answered</p>
+			    		</li>
+			    		<li ><h3>2782</h3>
+			    			<p>Total Question Views</p>
+			    		</li>
+						<div class="clear"></div>
+			    	</ul>
+			    </div>
+				<!---->
+				<div class="login-top">
+					<div class="recent_answers">
+						<span>Recent Answers</span>
+						<hr>
+						<ol>
+							<li>Lorem ipsum dolor lit. Lorem ipsum dolor sit amet dolor sit ur adipisicing e sit amet consectetur adipisicing elit. met consectetur adipisicin</li>
+							<li>Lorem ipsum dolor elit. Lorem ipsum dolor sit amet cectetur adipisicing elit adipisicing ipsum elit. Lorem ag elit elitsit amet</li>
+							<li>Lorem etur adions etur adipisicing elitsit amet conspisi sit amet consectetur  elitsit amet conspisi sit amet consectetur.</li>
+						</ol>
+					</div>
+					&nbsp;
+					<em><a href="answers.html" class="btn-sm">Show more</a></em>
+					<br><br>
+					<div class="recent_questions" style="text-align: left">
+						<span>Questions with most answers</span>
+						<hr>
+						<table>
+							<thead>
+								<th width="90%">Questions</th>
+								<th width="10%">Answers</th>
+								<th width="10%">Show</th>
+							</thead>
+							<tbody>
+							<tr>
+								<td width="80%"><li>Lorem Lorem ipsum dolor sit amet consectetur adipisicing ipsum elit. Lorem ag elit.pisicing elit. Lorem ipsum sit amet consectet</li></td>
+								<td width="10%">500</td>
+								<td width="10%"><a href="view.html">View</a></td>
+							</tr>
+							<tr>
+								<td width="80%"><li>Lorem etur adions etur adipisicing elitsit amet conspisi sit amet consectetur elitsit amet conspisi sit amet consectetur adions etc</li></td>
+								<td width="10%">200</td>
+								<td width="10%"><a href="view.html">View</a></td>
+							</tr>
+							<tr>
+								<td width="90%"><li>Lorem ipsum dolor lit. Lorem ipsum dolor sit amet dolor sit ur adipisicing e sit amet consectetur adipisicing elit. met consectetur</li></td>
+								<td width="10%">900</td>
+								<td width="10%"><a href="view.html">View</a></td>
+							</tr>
+						</tbody>
+						</table>
+						<em><a href="questions.html">Show more</a></em>
+						<ol>
+						</ol>
+						
+					</div>
+				</div>
+				<!---->
+			</div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2018, Andela Bootcamp Challenge.
+	</footer>
+	<div id="simpleModal_6" class="modal">
+		<div class="modal-window">
+			<span class="close" data-dismiss="modal">&times;</span>
+			<span id="put"></span>
+		</div>
+	</div>
+	<span class="editProfile">
+		<h3>Modify Profile Info</h3>
+		<input type="email" value="johndoe@mail.com"><br>
+		<input type="text" value="john"><br>
+		<input type="password" value="1234567890"><br>
+		<input type="submit" value="Update Answer" data-dismiss="modal"><br>
+	</span>
+	<span class="postQuestions">
+		<h3>Post question</h3><br><br>	
+		<input type="text" placeholder="Title"><br><br>	
+		<textarea id="modify" placeholder="Type question here"></textarea><br>
+		<input type="submit" value="Post question" data-dismiss="modal">
+	</span>
+		
+<script src="js/modal.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
