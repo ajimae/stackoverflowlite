@@ -9,7 +9,16 @@ server.use(bodyParser.urlencoded({
 	extended: true,
 }));
 
+const urlParser = express.urlencoded({
+	extended: true,
+  });
+
+const jsonParser = express.json();
+server.use(jsonParser);
+server.use(urlParser);
 server.use(bodyParser.json());
+
+
 
 // Route
 routes(server);
