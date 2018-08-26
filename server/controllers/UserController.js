@@ -26,28 +26,24 @@ class UserController {
                                     if (res2.rows.length) {
                                         res.status(409).json({ error: `Email ${req.body.email} already exists` });
                                     } else {
-                                        if (req.rows.length) {
-                                            res.status(409).json({ error: `Username ${req.body.username} already exists` })
-                                        } else {
-                                            const hash = bcrypt.hashSync(req.body.password, 10);
-                                            const query = {
-                                                text: `insert into users (name, email, username, password) values ($1, $2, $3, $4) returning id, name, email, username`,
-                                                values: [req.body.name, req.body.email, req.body.username, hash],
-                                            };
-                                            return client.query(query, (error3, res3) => {
-                                                if (error3) {
-                                                    res.status(400).json({ error: 'Something went wrong with the process, Please try later' });
-                                                } else {
-                                                    const createdUser = res3.rows[0];
-                                                    const userToken = auth.authenticate(createdUser);
-                                                    return res.status(201).send({
-                                                        success: 'success',
-                                                        user: createdUser,
-                                                        token: userToken,
-                                                    });
-                                                }
-                                            });
-                                        }
+                                        const hash = bcrypt.hashSync(req.body.password, 10);
+                                        const query = {
+                                            text: `insert into users (name, email, username, password) values ($1, $2, $3, $4) returning id, name, email, username`,
+                                            values: [req.body.name, req.body.email, req.body.username, hash],
+                                        };
+                                        return client.query(query, (error3, res3) => {
+                                            if (error3) {
+                                                res.status(400).json({ error: 'Something went wrong with the process, Please try later' });
+                                            } else {
+                                                const createdUser = res3.rows[0];
+                                                const userToken = auth.authenticate(createdUser);
+                                                return res.status(201).send({
+                                                    success: 'success',
+                                                    user: createdUser,
+                                                    token: userToken,
+                                                });
+                                            }
+                                        });
                                     }
                                 }
                             }

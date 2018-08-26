@@ -17,14 +17,14 @@ export default (req, res, next) => {
     if(values.email && (!values.email.replace(/\s/g, '').length || !emailFilter.test(String(values.email).toLowerCase()))) {
         errors.email = 'Email can not be blank or format is wrong'; pass = false;
     }
-    if(values.password && !values.password.replace(/\s/g, '').length) {
+    if(values.password && !values.password.toString().replace(/\s/g, '').length) {
         errors.password = 'Password can not be blank'; pass = false;
     }
     if(values.name && !values.name.replace(/\s/g, '').length) {
         errors.name = 'Name can not be blank'; pass = false;
     }
     if (pass === false) { res.status(400).json({ error: errors }); } else {
-        req.body.name = req.body.name.trim();req.body.password = req.body.password.trim();
+        req.body.name = req.body.name.trim();req.body.password = req.body.password.toString().trim();
         req.body.email = req.body.email.trim();
         next();
     }

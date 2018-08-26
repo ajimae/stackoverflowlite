@@ -23,12 +23,11 @@ class AnswerController {
             } else {
                 if (res4.rows.length > 0) {
                     const query5 = {
-                        text: 'insert into answers (user_id, answer, question_id) VALUES ($1, $2, $3) returning id, user_id, answer, question_id',
+                        text: 'insert into answers (user_id, username, answer, question_id) VALUES ($1, $2, $3, $4) returning id, user_id, username, answer, question_id',
                         values: [
-                            req.decoded.id, req.body.answer, _questionId
+                            req.decoded.id, req.session.username, req.body.answer, _questionId
                         ]
                     }
-                    console.log(query5);
                     db.query(query5, (error5, res5) => {
                         if (error5) {
                             return res.status(400).json({ error: 'Something went wrong with the process, Please try again later' });
@@ -56,12 +55,45 @@ class AnswerController {
             });
         }
 
-        const query = {
-            text: 'select * from answers where id = $1 AND question_id = $2',
+        const query8 = {
+            text: 'select * from answers where user_id = $1 AND question_id = $2',
             values: [
-                req.decoded.id, req.params.questionId
+                req.decoded.id, parseInt(req.params.questionId)
             ]
         }
+        db.query(query8, (error, result) => {
+            if(error) {
+                return res.status(400).json({
+                    error: 'Something went wrong with the process, Please try again later'
+                });
+            }else {
+                if(result.rows.length > 0) {
+                    // const query0 = {
+                    //     text: 'update answers set answer = $1, is_Prefered = $2, updated_at = $3 where question_id = $4 returning answer, is_Prefered, updated_at, question_id',
+                    //     values: [
+                    //         req.decoded.id, req.body.answer, true, undefined, req.params.questionId
+                    //     ]
+                    // }
+                    const query0 = {
+                        text: `update answers SET answer = $1, is_Prefered = $2, updated_at = $3 WHERE question_id = $4 returning id, answer, is_Prefered, updated_at`,
+                        values: [
+                            req.body.answer, req.body.is_Prefered, new Date().toISOString().slice(0, 10),
+                            req.params.questionId,
+                        ],
+                    }
+                    db.query(query0, (error0, res0) => {
+                        console.log(error0);
+                        if(error0) {
+                            return res.status(400).json({ error: '2Something went wrong with the process, Please try again later' });
+                        }else {
+                            return res.status(200).json({Success: 'Record updated successfully', Updated: res0.rows[0]});
+                        }
+                    });
+                }else {
+                    return res.status(200).json({message: 'The answer you are trying to update either does not exists or doesn\'t belong to you'});
+                }
+            }
+        });
     }
 }
 
