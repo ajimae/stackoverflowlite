@@ -12,25 +12,23 @@ const userParams = {
 
 const questionParams = {
   user_id: 'INT',
-  question_id: 'INT',
   title: 'VARCHAR',
   description: 'TEXT',
-  asker: 'VARCHAR',
-  is_prefered: 'BOOLEAN',
-  views: 'INT',
+  respondent: 'VARCHAR',
+  is_prefered: 'BOOLEAN DEFAULT false',
+  views: 'INT DEFAULT 0',
   posted_at: 'date NOT NULL DEFAULT CURRENT_DATE',
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
 }
 
 const answerParams = {
   user_id: 'INT',
-  answer_Id: 'INT',
-  title: 'VARCHAR',
   description: 'TEXT',
   question_id: 'INT',
-  asker: 'VARCHAR',
-  prefered: 'INT',
-  views: 'INT',
+  is_prefered: 'BOOLEAN DEFAULT false',
+  views: 'INT DEFAULT 0',
+  upvotes: 'INT DEFAULT 0',
+  downvotes: 'INT DEFAULT 0',
   posted_at: 'date NOT NULL DEFAULT CURRENT_DATE',
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
 }
