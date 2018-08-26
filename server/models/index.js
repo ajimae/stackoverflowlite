@@ -22,9 +22,10 @@ const questionParams = {
 
 const answerParams = {
   user_id: 'INT',
+  username: 'VARCHAR',
   answer: 'TEXT',
   question_id: 'INT',
-  is_prefered: 'INT DEFAULT 0',
+  is_prefered: 'BOOLEAN DEFAULT false',
   views: 'INT DEFAULT 0',
   upvotes: 'INT DEFAULT 0',
   downvotes: 'INT DEFAULT 0',
