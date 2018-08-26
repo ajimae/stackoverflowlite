@@ -15,9 +15,9 @@ const Routes = (server) => {
     server.post('/api/v1/questions', auth.verifyUserToken, validateQuestion.validate, questionController.createQuestion);
     server.get('/api/v1/questions', auth.verifyUserToken, questionController.getAllQuestions);
     server.get('/api/v1/questions/:questionId', auth.verifyUserToken, questionController.getQuestion);
+    server.delete('/api/v1/questions/:questionId', auth.verifyUserToken, questionController.deleteQuestion);
     //server.post('/api/v1/:questionId/answers', auth.verifyUserToken, validateQuestion.validate, answerController.createAnswer);
     //server.put('/api/v1/questions/:questionId/answers/:answerId', auth.verifyUserToken, validateQuestion.validate, answerController.markPrefered);
-    //server.delete('/api/v1/questions/:questionId', auth.verifyUserToken, questionController.deleteQuestion);
 };
   
 export default Routes;
