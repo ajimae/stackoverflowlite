@@ -12,22 +12,21 @@ class QuestionController {
     };
     db.query(query2, (error3, res3) => {
       if (error3) {
-        return res.status(400).json({ error: 'Something went wrong with the process, Please try later' });
+        return res.status(400).json({ error: 'Something went wrong with the process, Please try again later' });
       } else {
         return res.status(201).json({ success: 'Question Created successfully', Question: res3.rows });
       }
     });
   }
 
-  //
+  //Get all questions from database
   getAllQuestions(req, res) {
     const query2 = {
       text: 'Select * from questions',
-      //values: [req.decoded.id],
     };
     db.query(query2, (error2, res2) => {
       if (error2) {
-        return res.status(400).json({ error: 'Something went wrong with the process1, Please try later' });
+        return res.status(400).json({ error: 'Something went wrong with the process1, Please try again later' });
       } else {
         if (res2.rows.length > 0) {
           return res.status(200).json({ success: 'Success', Questions: res2.rows });
@@ -37,8 +36,27 @@ class QuestionController {
       }
     });
   }
+
+  getQuestion(req, res) {
+    const query2 = {
+      text: 'Select * from questions where id = $1 LIMIT 1',
+      values: [req.params.questionId],
+    };
+    db.query(query2, (error2, res2) => {
+      if (error2) {
+        return res.status(400).json({ error: 'Something went wrong with the process, Please try again later' });
+      } else {
+        if (res2.rows.length) {
+          return res.status(200).json({ success: 'Success', Question: res2.rows });
+        } else {
+          return res.status(404).json({ error: 'The question couldn\'t be found or must have been deleted'});
+        }
+      }
+    });
+  }
 }
 
+//exports
 export default new QuestionController();
 
 
