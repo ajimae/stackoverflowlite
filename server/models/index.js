@@ -24,7 +24,7 @@ const answerParams = {
   user_id: 'INT',
   answer: 'TEXT',
   question_id: 'INT',
-  is_prefered: 'BOOLEAN DEFAULT false',
+  is_prefered: 'INT DEFAULT 0',
   views: 'INT DEFAULT 0',
   upvotes: 'INT DEFAULT 0',
   downvotes: 'INT DEFAULT 0',

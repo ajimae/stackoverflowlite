@@ -36,11 +36,32 @@ class AnswerController {
                             return res.status(201).json({ success: 'Success', Answer: res5.rows });
                         }
                     });
-                } else {
+                }else {
                     return res.status(404).json({ message: 'The question ID didn\'t match any question in our database' });
                 }
             }
         });
+    }
+
+    is_Prefered = (req, res) => {
+        if(!req.params.answerId || isNaN(req.params.answerId)) {
+            return res.status(400).json({
+                message: "The specified answer ID is invalid",
+            });
+        }
+
+        if (!req.params.questionId || isNaN(req.params.questionId)) {
+            return res.status(400).json({
+                message: "The specified answer ID is invalid",
+            });
+        }
+
+        const query = {
+            text: 'select * from answers where id = $1 AND question_id = $2',
+            values: [
+                req.decoded.id, req.params.questionId
+            ]
+        }
     }
 }
 
