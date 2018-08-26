@@ -15,7 +15,6 @@ const questionParams = {
   title: 'VARCHAR',
   description: 'TEXT',
   respondent: 'VARCHAR',
-  is_prefered: 'BOOLEAN DEFAULT false',
   views: 'INT DEFAULT 0',
   posted_at: 'date NOT NULL DEFAULT CURRENT_DATE',
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
@@ -23,7 +22,7 @@ const questionParams = {
 
 const answerParams = {
   user_id: 'INT',
-  description: 'TEXT',
+  answer: 'TEXT',
   question_id: 'INT',
   is_prefered: 'BOOLEAN DEFAULT false',
   views: 'INT DEFAULT 0',
