@@ -5,10 +5,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-const env = process.env.NODE_ENV;
-//const env = 'test';
+//const env = process.env.NODE_ENV;
+const env = 'development';
 
 let database;
+console.log(databaseConfig);
 
 if (env === 'test') {
   database = new Pool(databaseConfig.test);
