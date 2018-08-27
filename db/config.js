@@ -2,7 +2,7 @@ import dotEnv from 'dotenv';
 
 dotEnv.config();
 
-//const databaseConfig = {};
+const databaseConfig = {};
 
 
 
@@ -18,7 +18,7 @@ dotEnv.config();
 
 databaseConfig.test = {
     //connectionString: process.env.STACK_LITE,
-    connectionString: "postgres://vrjrvrqtonfhsz:a4059234548ff1d35017bf2e8c8847ba14b17d4431a352a8d98c20ba30a6f6d9@ec2-54-225-92-1.compute-1.amazonaws.com:5432/d4qf60h3u2r1bh"
+    databaseConfig: "postgres://mlnbloqjrdgbiz:0f2522ad45392f1afb072f2d1edab52d07fb6bdca24602bdde3b0ff64f0f3ad7@ec2-54-243-216-33.compute-1.amazonaws.com:5432/dbt5gu8kib8g1b"
 };
 
 
