@@ -1,5 +1,5 @@
 import express from 'express';
-import session from 'express-session';
+//import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
