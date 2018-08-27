@@ -40,7 +40,7 @@ class UserController {
                                                 return res.status(201).send({
                                                     success: 'success',
                                                     user: createdUser,
-                                                    token: userToken,
+                                                    //token: userToken,
                                                 });
                                             }
                                         });
@@ -72,7 +72,7 @@ class UserController {
                         const token = auth.authenticate(user);
                         delete user.password;
                         req.session.username = user.username;
-                        console.log(req.session.username);
+                        //console.log(req.session.username);
                         return res.status(200).send({ success: 'success', user, token });
                     } else {
                         return res.status(401).send({ error: 'Invalid Email or Password' });

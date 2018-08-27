@@ -13,7 +13,7 @@ server.use(bodyParser.urlencoded({
 }));
 
 server.use(session({
-	secret: 'shh its a secret',
+	secret: process.env.SECRET,
 	resave: false,
 	saveUninitialized: true,
 	cookieParser: { secure: true }
@@ -23,7 +23,7 @@ const urlParser = express.urlencoded({
 	extended: true,
 });
 
-
+//console.log(process.env.SECRET);
 
 server.use(cookieParser());
 const jsonParser = express.json();

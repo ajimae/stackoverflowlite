@@ -1,9 +1,12 @@
 import { Pool } from 'pg';
-
 import databaseConfig from './config';
+import dotenv from 'dotenv';
 
-//const env = process.env.NODE_ENV;
-const env = 'test';
+dotenv.config();
+
+
+const env = process.env.NODE_ENV;
+//const env = 'test';
 
 let database;
 

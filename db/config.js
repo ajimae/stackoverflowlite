@@ -10,10 +10,12 @@ databaseConfig.development = {
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
+  ssl: process.env.SSL,
 };
 
+
 databaseConfig.test = {
-  connectionString: 'postgresql://root:123@localhost:5432/stackoverflowlite',
+    connectionString: process.env.STACK_LITE,
 };
 
 
