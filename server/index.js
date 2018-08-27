@@ -4,8 +4,6 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
 
-
-
 // Express initialization
 const server = express();
 server.use(bodyParser.urlencoded({
@@ -23,15 +21,12 @@ const urlParser = express.urlencoded({
 	extended: true,
 });
 
-//console.log(process.env.SECRET);
 
 server.use(cookieParser());
 const jsonParser = express.json();
 server.use(jsonParser);
 server.use(urlParser);
 server.use(bodyParser.json());
-
-
 
 // Route
 routes(server);
