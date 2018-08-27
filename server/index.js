@@ -10,12 +10,12 @@ server.use(bodyParser.urlencoded({
 	extended: true,
 }));
 
-server.use(session({
-	secret: process.env.SECRET,
-	resave: false,
-	saveUninitialized: true,
-	cookieParser: { secure: true }
-}));
+// server.use(session({
+// 	secret: process.env.SECRET,
+// 	resave: false,
+// 	saveUninitialized: true,
+// 	cookieParser: { secure: true }
+// }));
 
 const urlParser = express.urlencoded({
 	extended: true,
