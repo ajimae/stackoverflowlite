@@ -1,6 +1,6 @@
 import express from 'express';
-//import session from 'express-session';
-//import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
 
@@ -10,22 +10,22 @@ server.use(bodyParser.urlencoded({
 	extended: true,
 }));
 
-// server.use(session({
-// 	secret: process.env.SECRET,
-// 	resave: false,
-// 	saveUninitialized: true,
-// 	cookieParser: { secure: true }
-// }));
+server.use(session({
+	secret: process.env.SECRET,
+	resave: false,
+	saveUninitialized: true,
+	cookieParser: { secure: true }
+}));
 
-// const urlParser = express.urlencoded({
-// 	extended: true,
-// });
+const urlParser = express.urlencoded({
+	extended: true,
+});
 
 
-//server.use(cookieParser());
+server.use(cookieParser());
 const jsonParser = express.json();
 server.use(jsonParser);
-//server.use(urlParser);
+server.use(urlParser);
 server.use(bodyParser.json());
 
 // Route
