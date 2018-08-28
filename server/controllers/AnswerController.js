@@ -89,28 +89,6 @@ class AnswerController {
                 });
             }
         });
-
-        //
-        // const query9 = {
-        //     text: 'select * from questions where user_id = $1 AND question_id = $2',
-        //     values: [
-        //         req.decoded.id, parseInt(req.params.questionId)
-        //     ]
-        // }
-        // db.query(query9, (error9, res9) => {
-        //     if(error9) {
-        //         return res.status(400).json({
-        //             error: 'Server cannot process request at this time, Please try again later'
-        //         });
-        //     }else {
-        //         if(res9.rows.length > 0) {
-        //             return res.status(200).json({
-        //                 success: 'Success',
-        //                 Question: res9.rows[0]
-        //             });
-        //         }
-        //     }
-        // });
     }
 }
 
