@@ -1,0 +1,190 @@
+"swagger": "2.0"
+info:
+  description: "This is a Question and Answer application that allows users to Ask questions, view questions, upvote or downvote answers and modify questions."
+  version: "1.0.0"
+  title: "Stackoverflow-Lite"
+  contact: 
+    email: "meeky.ae@gmail.com"
+host: "ajimae.herokuapp.com"
+basePath: "/"
+schemes:
+- "https"
+- "http"
+paths:
+  /Questions:
+    get:
+      tags:
+      - "Quesions"
+      summary: "Get all Questions"
+      description: "Returns a json of all Questions in the database."
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Success"
+        401:
+          description: "No token provided"
+        500:
+          description: "Server Error or Invalid token"
+  /questions/:questionId:
+    get:
+      tags:
+      - "Questions"
+      summary: "Get a single question"
+      description: "Returns a json object containing details of a particular question"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "QuestionId"
+        description: "The required ID to be returned"
+        required: true
+      responses:
+        200:
+          description: "Question Details"
+        404:
+          description: "Question not found"
+        401:
+          description: "Token not provided"
+        500:
+          description: "Server Error or Invalid token"
+  /Questions/:
+    post:
+      tags:
+      - "Questions"
+      summary: "Create a question"
+      description: "Creates a Question"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successfully created"
+        400:
+          description: "Incomplete values or bad request"
+        401:
+          description: "No token Provided"
+        500:
+          description: "Server Error or Invalid token"
+  /Questions/:questionsId/:
+     put:
+       tags:
+       - "Questions"
+       summary: "Modify a question"
+       description: "Modifies a Question"
+       produces:
+       - "application/json"
+       responses:
+         200:
+           description: "successful"
+         400:
+           description: "Incomplete values or bad request"
+         401:
+            description: "No token provided"
+         500:
+           description: "Server Error or Invalid token"
+  /auth/signup:
+    post:
+      tags:
+      - "User"
+      summary: "Creates a new user"
+      description: "A new user is created and a token is given to be able to access protected routes(endpoints)"
+      produces:
+      - "application/json"
+      responses:
+        201:
+          description: "successfully created"
+        400:
+          description: "Incomplete parameters"
+        500:
+          description: "server Error"
+          schema:
+            $ref: "#/definitions/User"
+  /auth/login:
+    post:
+      tags:
+      - "User"
+      summary: "Logs in an existing user"
+      description: "The logged in user gets a token to be able to access protected routes "
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "query"
+        description: "The email for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The password for login"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successfully logged in"
+          schema:
+            type: "string"
+        401:
+          description: "Invalid email or password"
+          schema:
+            $ref: "#/definitions/User"
+securityDefinitions:
+  api_key:
+    name: "token"
+    in: "header"
+definitions:
+  Question:
+    type: "object"
+    properties:
+      user_id:
+        type: "integer"
+      title:
+        type: "string"
+      description:
+        type: "string"
+      respondent:
+        type: "string"
+      views:
+        type: "integer"
+      posted_at:
+        type: "date"
+      updated_at:
+        type: "date"
+  User:
+    type: "object"
+    properties:
+      name:
+        type: "integer"
+      username:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      created_at:
+        type: "date"
+      updated_at:
+        type: "date"
+  Answer:
+    type: "object"
+    properties:
+      user_id:
+        type: "integer"
+      username:
+        type: "string"
+      answer:
+        type: "string"
+      question_id:
+        type: "string"
+      is_prefered:
+        type: "string"
+      views:
+        type: "integer"
+      upvotes:
+        type: "integer"
+      downvotes:
+        type: "integer"
+      posted_at:
+        type: "date"
+      updated_at:
+        type: "date"
+
