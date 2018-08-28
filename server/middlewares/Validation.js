@@ -48,5 +48,4 @@ const check = {
     },
 };
 
-console.log(check.validateAnswers);
 export default check;

@@ -67,7 +67,6 @@ class AnswerController {
             } else {
                 const query5 = { text: 'select * from questions where id = $1 AND user_id = $2 LIMIT 1', values: [req.params.questionId, req.decoded.id] };
                 db.query(query5, (error5, res5) => {
-                    //
                     if (result.rows.length > 0 || res5.rows.length > 0) {
                         const query0 = {
                             text: `update answers SET answer = $1, is_Prefered = $2, updated_at = $3 WHERE question_id = $4 returning id, answer, is_Prefered, updated_at`,

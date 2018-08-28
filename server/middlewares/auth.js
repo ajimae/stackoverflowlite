@@ -10,7 +10,7 @@ const auth = {
     return jwt.sign({
       id: user.id,
       email: user.email,
-    }, 'secret', {
+    }, 'process.env.SECRET', {
       expiresIn: '48h',
     });
   },
@@ -18,7 +18,7 @@ const auth = {
   verifyToken(token) {
     let decoded = {};
     try {
-      decoded.payload = jwt.verify(token, 'secret');
+      decoded.payload = jwt.verify(token, 'process.env.SECRET');
     } catch (error) {
       decoded = {
         error: error.message,
