@@ -9,7 +9,6 @@ dotenv.config();
 const env = 'development';
 
 let database;
-console.log(databaseConfig);
 
 if (env === 'test') {
   database = new Pool(databaseConfig.test);
