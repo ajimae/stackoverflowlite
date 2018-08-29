@@ -2,13 +2,13 @@ import query from './query';
 import db from '../../db';
 
 const userParams = {
-  name: 'VARCHAR',
+name: 'VARCHAR',
   username: 'VARCHAR',
   email: 'VARCHAR',
   password: 'VARCHAR',
   created_at: 'date NOT NULL DEFAULT CURRENT_DATE',
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
-}
+}  
 
 const questionParams = {
   user_id: 'INT',
