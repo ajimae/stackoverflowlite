@@ -1,5 +1,7 @@
 import express from 'express';
 import session from 'express-session';
+import YAML from 'yamljs';
+import swaggerUi from 'swagger-ui-express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
@@ -9,6 +11,8 @@ const server = express();
 server.use(bodyParser.urlencoded({
 	extended: true,
 }));
+
+const swaggerDocument = YAML.load(`${process.cwd()}/swagger.yaml`);
 
 server.use(session({
 	secret: process.env.SECRET,
@@ -21,12 +25,13 @@ const urlParser = express.urlencoded({
 	extended: true,
 });
 
+const jsonParser = express.json();
 
 server.use(cookieParser());
-const jsonParser = express.json();
 server.use(jsonParser);
 server.use(urlParser);
 server.use(bodyParser.json());
+server.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Route
 routes(server);

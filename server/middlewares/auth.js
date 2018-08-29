@@ -1,7 +1,3 @@
-/**
- * Created by obulaworld on 7/26/18.
- */
-// Reference => https://github.com/DinmaOtutu/RIDE-MY-WAY/
 import jwt from 'jsonwebtoken';
 import db from '../../db';
 
@@ -10,7 +6,7 @@ const auth = {
     return jwt.sign({
       id: user.id,
       email: user.email,
-    }, 'process.env.SECRET', {
+    }, process.env.SECRET, {
       expiresIn: '48h',
     });
   },
@@ -18,7 +14,7 @@ const auth = {
   verifyToken(token) {
     let decoded = {};
     try {
-      decoded.payload = jwt.verify(token, 'process.env.SECRET');
+      decoded.payload = jwt.verify(token, process.env.SECRET);
     } catch (error) {
       decoded = {
         error: error.message,

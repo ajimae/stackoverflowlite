@@ -1,5 +1,5 @@
 /**
- * Created by obulaworld on 7/26/18.
+ * Created by chukwuemeka on 22/02/2018.
  */
 
 export default (req, res, next) => {
@@ -10,7 +10,7 @@ export default (req, res, next) => {
     const values = req.body;
     const required = ['email', 'password', 'name'];
     let errors = {};
-    //console.log(emailFilter.test(String(values.email).toLowerCase()));
+
     for (let i = 0; i < required.length; i += 1) {
         if (!values[required[i]]) { pass = false; errors[required[i]] = `${required[i]} is required`; }
     }
