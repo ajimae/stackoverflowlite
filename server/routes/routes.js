@@ -10,8 +10,8 @@ import validateUser2 from '../middlewares/LoginValidation';
 
 const Routes = (server) => {
     server.get('/', homeController.home);
-    server.post('/api/v1/auth/signup', validateUser, userController.createUser); //
-    server.post('/api/v1/auth/login', validateUser2, userController.loginUser);  //
+    server.post('/api/v1/auth/signup', validateUser, userController.createUser);
+    server.post('/api/v1/auth/login', validateUser2, userController.loginUser);
     server.post('/api/v1/questions', auth.verifyUserToken, validate.validateQuestions, questionController.createQuestion);
     server.get('/api/v1/questions', auth.verifyUserToken, questionController.getAllQuestions);
     server.get('/api/v1/questions/:questionId', auth.verifyUserToken, questionController.getQuestion);

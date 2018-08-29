@@ -18,7 +18,8 @@
         "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha test/*.js",
         "cover": "istanbul cover _mocha",
         "report": "nyc --reporter=html --reporter=text-lcov mocha --require babel-core/register ./test --exit | coveralls",
-        "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+        "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+        "delete": "node -r babel-register -r ./node_modules/dotenv/config ./server/models/dropTables"
     },
     "author": "Ajima Chukwuemeka",
     "license": "ISC",
@@ -37,6 +38,7 @@
         "express-session": "^1.15.6",
         "joi": "^13.6.0",
         "jsonwebtoken": "^8.3.0",
+        "knex": "^0.15.2",
         "nyc": "^12.0.2",
         "pg": "^7.4.3",
         "swagger-ui-express": "^3.0.10",
