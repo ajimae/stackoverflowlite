@@ -1,5 +1,5 @@
 import auth from '../middlewares/auth';
-import validate from '../middlewares/validation';
+//import validate from '../middlewares/validation';
 import validateUser from '../middlewares/userValidation';
 import UserController from '../controllers/UserController';
 import HomeController from '../controllers/HomeController';
