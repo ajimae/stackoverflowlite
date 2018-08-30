@@ -1,10 +1,8 @@
-import db from '../../db';
+import db from '../db';
 import bcrypt from 'bcrypt';
 import auth from '../middlewares/auth';
 
-class UserController {
-
-    // User creation
+export default class UserController {
     createUser(req, res) {
         const check = `SELECT * FROM users where email = '${req.body.email}'`;
         const user = `SELECT * FROM users where username = '${req.body.username}'`;
@@ -37,10 +35,11 @@ class UserController {
                                             } else {
                                                 const createdUser = res3.rows[0];
                                                 const userToken = auth.authenticate(createdUser);
+                                                req.session.username = user.username;
                                                 return res.status(201).send({
                                                     success: 'success',
                                                     user: createdUser,
-                                                    //token: userToken,
+                                                    token: userToken,
                                                 });
                                             }
                                         });
@@ -61,7 +60,7 @@ class UserController {
         };
         db.query(query, (error1, response) => {
             if (error1) {
-                res.status(400).json({ error: 'Something went wrong with the process1, Please try later' });
+                res.status(400).json({ error: 'Bad Request: fill in all requuired fields and try later' });
             } else {
                 const user = response.rows[0];
                 if (!response.rows.length) {
@@ -72,7 +71,6 @@ class UserController {
                         const token = auth.authenticate(user);
                         delete user.password;
                         req.session.username = user.username;
-                        //console.log(req.session.username);
                         return res.status(200).send({ success: 'success', user, token });
                     } else {
                         return res.status(401).send({ error: 'Invalid Email or Password' });
@@ -82,5 +80,3 @@ class UserController {
         });
     }
 }
-
-export default new UserController();

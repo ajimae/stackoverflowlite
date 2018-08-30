@@ -33,7 +33,7 @@ server.use(urlParser);
 server.use(bodyParser.json());
 server.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// Route
+
 routes(server);
 
 

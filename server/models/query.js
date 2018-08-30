@@ -2,11 +2,11 @@ export default (db, dbName, params, callback) => {
   let text = `Create table IF NOT EXISTS ${dbName}(id SERIAL PRIMARY KEY not null,`;
   const keys = Object.keys(params);
   const length = keys.length;
-  for (const param in params){
+  for (const param in params) {
     if (params.hasOwnProperty(param)) {
       text += param + ' ' + params[param];
     }
-    if (keys[length - 1] === param){
+    if (keys[length - 1] === param) {
       text += '';
     } else { text += ','; }
   }

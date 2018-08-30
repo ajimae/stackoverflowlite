@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
-import db from '../../db';
+import db from '../db';
+
 
 const auth = {
   authenticate(user) {
@@ -33,11 +34,11 @@ const auth = {
       return res.status(500).json({ error: 'Failed to authenticate token.' });
     }
     const query = {
-      text: 'Select * from users where id = $1 LIMIT 1', values: [decoded.payload.id],
+      text: 'select * from users where id = $1 LIMIT 1', values: [decoded.payload.id],
     };
     if(req.params.id && isNaN(parseInt(req.params.id, 10))) {
          return res.status(400).json({ error: 'The id provided must be an integer' });
-      }
+    }
     db.query(query, (error2, response) => {
       if (error2) {
         return res.status(400).json({error: 'Something went wrong with the process, Please try later'});

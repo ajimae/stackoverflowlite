@@ -1,10 +1,11 @@
-import db from '../../db';
+//Adapted from stackoverflow url: https://stackoverflow.com/questions/23593052/format-javascript-date-to-yyyy-mm-dd
+import db from '../db';
 
-class AnswerController {
+export default class AnswerController {
     createAnswer = (req, res) => {
         const _questionId = parseInt(req.params.questionId);
         if (!req.body.answer) {
-            return res.status(406).json({   // Not Acceptable
+            return res.status(406).json({
                 message: "Please specify a valid answer."
             });
         }
@@ -70,7 +71,7 @@ class AnswerController {
                     if (result.rows.length > 0 || res5.rows.length > 0) {
                         const query0 = {
                             text: `update answers SET answer = $1, is_Prefered = $2, updated_at = $3 WHERE question_id = $4 returning id, answer, is_Prefered, updated_at`,
-                            values: [                                  //Adapted from stackoverflow url: https://stackoverflow.com/questions/23593052/format-javascript-date-to-yyyy-mm-dd
+                            values: [                                  
                                 req.body.answer, req.body.is_Prefered, new Date().toISOString().slice(0, 10),
                                 req.params.questionId,
                             ],
@@ -90,5 +91,3 @@ class AnswerController {
         });
     }
 }
-
-export default new AnswerController();

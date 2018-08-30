@@ -1,4 +1,3 @@
-
 const check = {
     validateQuestions(req, res, next) {
         let pass = true;

@@ -1,8 +1,8 @@
 import query from './query';
-import db from '../../db';
+import db from '../db';
 
-const userParams = {
-name: 'VARCHAR',
+const usersColumn = {
+  name: 'VARCHAR',
   username: 'VARCHAR',
   email: 'VARCHAR',
   password: 'VARCHAR',
@@ -10,7 +10,7 @@ name: 'VARCHAR',
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
 }  
 
-const questionParams = {
+const questionsColumn = {
   user_id: 'INT',
   title: 'VARCHAR',
   description: 'TEXT',
@@ -20,7 +20,7 @@ const questionParams = {
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
 }
 
-const answerParams = {
+const answersColumn = {
   user_id: 'INT',
   username: 'VARCHAR',
   answer: 'TEXT',
@@ -33,7 +33,7 @@ const answerParams = {
   updated_at: 'date NOT NULL DEFAULT CURRENT_DATE',
 }
 
-query(db, 'users', userParams, () => {
-  query(db, 'questions', questionParams);
-  query(db, 'answers', answerParams);
+query(db, 'users', usersColumn, () => {
+  query(db, 'questions', questionsColumn);
+  query(db, 'answers', answersColumn);
 });

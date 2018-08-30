@@ -1,10 +1,7 @@
-/**
- * Created by Chukwuemeka on 25/05/2018.
- */
+//https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
 
 export default (req, res, next) => {
     let pass = true;
-    // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
     const emailFilter = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/;
     if(req.body.email) req.body.email = req.body.email.trim();
     const values = req.body;
@@ -19,7 +16,6 @@ export default (req, res, next) => {
     if(values.password && !values.password.toString().replace(/\s/g, '').length) {
         errors.password = 'Password can not be blank'; pass = false;
     }
-    //console.log(pass);
     if (pass === false) { res.status(400).json({ error: errors }); } else {
         req.body.email = req.body.email.trim();
         req.body.password = req.body.password.toString().trim();

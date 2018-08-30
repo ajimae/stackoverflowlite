@@ -1,9 +1,8 @@
-import db from '../../db';
+import db from '../db';
 
-class QuestionController {
-  createQuestion = (req, res) => {
-    //const user = db.query(`select * from users where username = ${req.session.username}`, (err, result) => {return result.rows[0].username});
-    //console.log(req.session.username);
+
+export default class QuestionController {
+  createQuestion(req, res) {
     const query2 = {
       text: 'insert into questions (user_id, title, description, respondent) VALUES ($1, $2, $3, $4) returning id, user_id, title, description, respondent',
       values: [
@@ -19,7 +18,8 @@ class QuestionController {
     });
   }
 
-  //Get all questions from database
+
+
   getAllQuestions = (req, res) => {
     const query2 = {
       text: 'Select * from questions',
@@ -38,22 +38,32 @@ class QuestionController {
   }
 
   getQuestion(req, res) {
-    if (!req.params.questionId || isNaN(req.params.questionId)) {
+    if(!req.params.questionId || isNaN(req.params.questionId)) {
       return res.status(400).json({ message: 'The specified question ID is invalid' })
     }
     const query2 = {
       text: 'Select * from questions where id = $1 LIMIT 1',
       values: [req.params.questionId],
     };
+    const query0 = {
+      text: 'select * from answers where question_id = $1',
+      values: [req.params.questionId]
+    };
     db.query(query2, (error2, res2) => {
       if (error2) {
         return res.status(400).json({ error: 'Something went wrong with the process, Please try again later' });
       } else {
-        if (res2.rows.length) {
-          return res.status(200).json({ success: 'Success', Question: res2.rows });
-        } else {
-          return res.status(404).json({ error: 'The question couldn\'t be found or must have been deleted' });
-        }
+        db.query(query0, (error0, res0) => {
+          if(error0) {
+            return res.status(400).json('Something went wrong, please again later')
+          }else {
+            if (res2.rows.length) {
+              res.status(200).json({success: 'Success', Question: res2.rows, Answers: res0.rows});
+            } else {
+              return res.status(404).json({ error: 'The question couldn\'t be found or must have been deleted' });
+            }
+          }
+        });
       }
     });
   }
@@ -78,7 +88,7 @@ class QuestionController {
                 db.query(query3, (error3, res3) => {
                   if (error3) return res.status(400).json({ error: 'Something went wrong with the process, Please try again later' });
                   else {
-                    db.query(`delete from answers where question_id = ${req.params.questionId}`, (err, result) => { console.log(result.rows[0]) });
+                    db.query(`delete from answers where question_id = ${req.params.questionId}`, (err, result) => { result.rows[0] });
                     return res.status(200).json({ success: 'Question successfully deleted' });
                   }
                 });
@@ -91,16 +101,4 @@ class QuestionController {
       }
     });
   }
-
-
-
 }
-
-//exports
-export default new QuestionController();
-
-
-
-
-
-
