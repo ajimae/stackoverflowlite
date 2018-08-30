@@ -1,11 +1,11 @@
-import QuestionController from '../controllers/QuestionController';
-import UserController from '../controllers/UserController';
-import AnswerController from '../controllers/AnswerController';
-import HomeController from '../controllers/HomeController';
 import auth from '../middlewares/auth';
-import validateUser from '../middlewares/userValidation';
-import validateUser2 from '../middlewares/loginValidation';
 import validate from '../middlewares/validation';
+import validateUser from '../middlewares/userValidation';
+import UserController from '../controllers/UserController';
+import HomeController from '../controllers/HomeController';
+import validateUser2 from '../middlewares/loginValidation';
+import AnswerController from '../controllers/AnswerController';
+import QuestionController from '../controllers/QuestionController';
 
 
 export default (server) => {
