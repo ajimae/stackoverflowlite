@@ -3,7 +3,7 @@ import UserController from '../controllers/UserController';
 import AnswerController from '../controllers/AnswerController';
 import HomeController from '../controllers/HomeController';
 import auth from '../middlewares/auth';
-import validate from '../middlewares/validation';
+import validate from '../middlewares/validation'
 import validateUser from '../middlewares/userValidation';
 import validateUser2 from '../middlewares/loginValidation';
 
