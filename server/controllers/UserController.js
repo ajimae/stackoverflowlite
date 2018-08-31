@@ -1,5 +1,5 @@
-import db from '../db';
 import bcrypt from 'bcrypt';
+import db from '../db';
 import auth from '../middlewares/auth';
 
 export default class UserController {

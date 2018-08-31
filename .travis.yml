@@ -4,7 +4,9 @@ node_js:
 cache:
   directories:
     - "node_modules"
-after_success:
+after_script:
   - npm run coveralls
   - npm run coverage
   - npm run report
+  - npm run coverage
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

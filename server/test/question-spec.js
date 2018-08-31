@@ -6,9 +6,29 @@ import server from '../index';
 const should = chai.should();
 chai.use(chaiHttp);
 
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtZWVreUBtYWlsLmNvbSIsImlhdCI6MTUzNTcxMjI5MCwiZXhwIjoxNTM1ODg1MDkwfQ.5JBSTwnQqQrQCyuvOQLyshma6_khcp11CLShiWWFzRA";
+let token = '';
 
 describe('Home route controller', () => {
+	it('should Create New User, when all parameters are complete', (done) => {
+    const values = {
+        name: 'jane doe',
+        email: 'janedoe600@mail.com',
+        username: 'jane600',
+        password: 123,
+        confirmPass: 123
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(values)
+      .end((err, res) => {
+        token = res.body.token;
+        res.should.have.status(201);
+        res.body.should.be.a('object');
+        res.body.should.have.property('user');
+        res.body.should.have.property('token');
+        done();
+      });
+  });
 	it('Should return the home route at /', (done) => {
 		chai.request(server)
 		.get('/')

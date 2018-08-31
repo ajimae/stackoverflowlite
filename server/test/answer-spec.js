@@ -7,24 +7,46 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 
-let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtZWVreUBtYWlsLmNvbSIsImlhdCI6MTUzNTcxMjI5MCwiZXhwIjoxNTM1ODg1MDkwfQ.5JBSTwnQqQrQCyuvOQLyshma6_khcp11CLShiWWFzRA';
+let token = '';
 
 describe('Answers Route Controller', () => {
-    it('should return 200 (OK) for POST /answers with a valid token', (done) => {
+    it('should Create New User, when all parameters are complete', (done) => {
         const values = {
-            answer: 'You are jane doe',
+            name: 'jane doe',
+            email: 'janedoe500@mail.com',
+            username: 'jane500',
+            password: 123,
+            confirmPass: 123
         };
         chai.request(server)
-            .post('/api/v1/questions/1/answers')
-            .set('x-access-token', token)
-            .send(values)
-            .end((err, res) => {
-                res.should.have.status(201);
-                res.body.should.be.a('object');
-                res.should.be.json;
-                done();
-            });
-    });
+          .post('/api/v1/auth/signup')
+          .send(values)
+          .end((err, res) => {
+            token = res.body.token;
+            res.should.have.status(201);
+            res.body.should.be.a('object');
+            res.body.should.have.property('user');
+            res.body.should.have.property('token');
+            done();
+          });
+      });
+    setTimeout(() => {
+        it('should return 200 (OK) for POST /answers with a valid token', (done) => {
+            const values = {
+                answer: 'You are jane doe',
+            };
+            chai.request(server)
+                .post('/api/v1/questions/1/answers')
+                .set('x-access-token', token)
+                .send(values)
+                .end((err, res) => {
+                    res.should.have.status(201);
+                    res.body.should.be.a('object');
+                    res.should.be.json;
+                    done();
+                });
+        });
+    }, 2000);
     it('should return 500 (Internal Server Error) for Any POST /answers endpoint with an invalid token', (done) => {
         const values = {
             answer: "You are jane doe"
@@ -73,22 +95,24 @@ describe('Answers Route Controller', () => {
                 done();
             });
     });
-    it('should return 201 (Created) POST /:questionId/answers/ with a valid token and known questionId', (done) => {
-        const values = {
-            answer: "You are jane doe"
-        }
-        chai.request(server)
-            .post('/api/v1/questions/1/answers')
-            .set('x-access-token', token)
-            .send(values)
-            .end((err, res) => {
-                res.should.have.status(201);
-                res.body.should.be.a('object');
-                res.body.should.have.property('success');
-                res.body.should.not.have.property('error');
-                done();
-            });
-    });
+    setTimeout(() => {
+        it('should return 201 (Created) POST /:questionId/answers/ with a valid token and known questionId', (done) => {
+            const values = {
+                answer: "You are jane doe"
+            }
+            chai.request(server)
+                .post('/api/v1/questions/1/answers')
+                .set('x-access-token', token)
+                .send(values)
+                .end((err, res) => {
+                    res.should.have.status(201);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('success');
+                    res.body.should.not.have.property('error');
+                    done();
+                });
+        });
+    }, 2000);
     it('should return 400 for POST /answers with an invalid questionId', (done) => {
         	const values = {
         		answer: "You are jane doe"
