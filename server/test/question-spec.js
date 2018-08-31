@@ -6,9 +6,7 @@ import server from '../index';
 const should = chai.should();
 chai.use(chaiHttp);
 
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYW5lZG9lQG1haWwuY29tIiwiaWF0IjoxNTM1Njc4MDI3LCJleHAiOjE1MzU4NTA4Mjd9.fvwcfH1MEQHUpm_HbxIijyJ81aFNo6odBVsnt3nFpZE";
-
-
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJtZWVreUBtYWlsLmNvbSIsImlhdCI6MTUzNTcxMjI5MCwiZXhwIjoxNTM1ODg1MDkwfQ.5JBSTwnQqQrQCyuvOQLyshma6_khcp11CLShiWWFzRA";
 
 describe('Home route controller', () => {
 	it('Should return the home route at /', (done) => {
