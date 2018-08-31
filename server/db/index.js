@@ -5,16 +5,17 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-//const env = process.env.NODE_ENV;
-const env = 'development';
+//const env = 'development';
+const env = 'test';
+
 
 let database;
-console.log(databaseConfig);
 
 if (env === 'test') {
   database = new Pool(databaseConfig.test);
 } else {
   database = new Pool(databaseConfig.development);
 }
+
 
 export default database;

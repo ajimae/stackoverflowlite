@@ -14,10 +14,9 @@ databaseConfig.development = {
 };
 
 
-// databaseConfig.development = {
-//     //connectionString: process.env.STACK_LITE,
-//     databaseConfig: "postgres://mlnbloqjrdgbiz:0f2522ad45392f1afb072f2d1edab52d07fb6bdca24602bdde3b0ff64f0f3ad7@ec2-54-243-216-33.compute-1.amazonaws.com:5432/dbt5gu8kib8g1b"
-// };
+databaseConfig.test = {
+    connectionString:"postgresql://root:123@localhost:5432/stackoverflowlite"
+}
 
 
 export default databaseConfig;

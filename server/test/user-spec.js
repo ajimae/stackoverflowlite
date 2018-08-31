@@ -1,4 +1,4 @@
-/*import chai from 'chai';
+import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../index';
 
@@ -7,14 +7,15 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 
-let token = '';
+let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYW5lZG9lQG1haWwuY29tIiwiaWF0IjoxNTM1Njc4MDI3LCJleHAiOjE1MzU4NTA4Mjd9.fvwcfH1MEQHUpm_HbxIijyJ81aFNo6odBVsnt3nFpZE';
 describe('User Route Controller', () => {
   it('should Create New User, when all parameters are complete', (done) => {
     const values = {
-	   name: 'jane doe',
-	   email: 'janedoe2@mail.com',
-	   username: 'jane20',
-       password: 'password'
+        name: 'jane doe',
+        email: 'janedoe00@mail.com',
+        username: 'jane00',
+        password: 123,
+        confirmPass: 123
     };
     chai.request(server)
       .post('/api/v1/auth/signup')
@@ -23,9 +24,28 @@ describe('User Route Controller', () => {
         token = res.body.token;
         res.should.have.status(201);
         res.body.should.be.a('object');
-        res.body.should.have.property('success');
+        res.body.should.have.property('Success');
         res.body.should.have.property('user');
         res.body.should.have.property('token');
+        done();
+      });
+  });
+  it('should return 409 (Conflict) POST /signup for signup using existing details', (done) => {
+    const values = {
+        name: 'jane doe',
+        email: 'janedoe91@mail.com',
+        username: 'jane91',
+        password: 123,
+        confirmPass: 123
+    };
+    chai.request(server)
+      .post('/api/v1/auth/signup')
+      .send(values)
+      .end((err, res) => {
+        res.should.be.json;
+        res.should.have.status(409);
+        res.body.should.be.a('object');
+        res.body.should.have.property('error');
         done();
       });
   });
@@ -34,7 +54,8 @@ describe('User Route Controller', () => {
 		name: 'jane doe',
 		email: '',
 		username: 'jane20',
-		password: 'password'
+    password: 'password',
+    confirmPass: 'password'
     };
     chai.request(server)
       .post('/api/v1/auth/signup')
@@ -47,7 +68,7 @@ describe('User Route Controller', () => {
   });
   it('Login an existing user, when all the required parameters in good standing', (done) => {
     const values = {
-      email: 'janedoe2@mail.com',
+      email: 'janedoe@mail.com',
       password: 123,
     };
     chai.request(server)
@@ -91,4 +112,4 @@ describe('User Route Controller', () => {
         done();
       });
   });
-});*/
+});

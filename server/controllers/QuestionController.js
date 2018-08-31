@@ -26,12 +26,12 @@ export default class QuestionController {
     };
     db.query(query2, (error2, res2) => {
       if (error2) {
-        return res.status(400).json({ error: 'Something went wrong with the process1, Please try again later' });
+        return res.status(400).json({ error: 'Something went wrong with the process, Please try again later' });
       } else {
         if (res2.rows.length > 0) {
           return res.status(201).json({ success: 'Success', Questions: res2.rows });
         } else {
-          return res.status(200).json({ success: 'Success', message: 'No questions have been posted' });
+          return res.status(200).json({ success: 'Success', message: 'No question have been posted' });
         }
       }
     });

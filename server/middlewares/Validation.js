@@ -21,6 +21,7 @@ const check = {
             next();
         }
     },
+    
     validateAnswers(req, res, next) {
         let pass = true;
         const values = req.body;
