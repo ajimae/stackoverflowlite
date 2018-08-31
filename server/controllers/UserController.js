@@ -52,7 +52,6 @@ export default class UserController {
             }
         });
     }
-
     loginUser(req, res) {
         const query = {
             text: 'select id, name, username, password from users where email = $1 LIMIT 1',

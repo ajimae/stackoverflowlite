@@ -19,6 +19,6 @@ export default (server) => {
     server.get('/api/v1/questions', new QuestionController().getAllQuestions);
     server.get('/api/v1/questions/:questionId', new QuestionController().getQuestion);
     server.delete('/api/v1/questions/:questionId', auth.verifyUserToken, new QuestionController().deleteQuestion);
-    server.post('/api/v1/:questionId/answers', auth.verifyUserToken, validate.validateAnswers, new AnswerController().createAnswer);
+    server.post('/api/v1/questions/:questionId/answers', auth.verifyUserToken, validate.validateAnswers, new AnswerController().createAnswer);
     server.put('/api/v1/questions/:questionId/answers/:answerId', auth.verifyUserToken, validate.validateAnswers, new AnswerController().is_Prefered);
 };
