@@ -12,8 +12,8 @@ describe('User Route Controller', () => {
   it('should Create New User, when all parameters are complete', (done) => {
     const values = {
         name: 'jane doe',
-        email: 'janedoe00@mail.com',
-        username: 'jane00',
+        email: 'janedoe300@mail.com',
+        username: 'jane300',
         password: 123,
         confirmPass: 123
     };
@@ -24,7 +24,6 @@ describe('User Route Controller', () => {
         token = res.body.token;
         res.should.have.status(201);
         res.body.should.be.a('object');
-        res.body.should.have.property('Success');
         res.body.should.have.property('user');
         res.body.should.have.property('token');
         done();
