@@ -15,7 +15,8 @@ const databaseConfig = {};
 
 
 databaseConfig.test = {
-    connectionString:"postgresql://root:123@localhost:5432/stackoverflowlite"
+    //connectionString:"postgresql://root:123@localhost:5432/stackoverflowlite"
+    connectionString: "postgres://mmrdjncn:5go6njXYevrsEDpzmc_dcRIAyTjBkeqZ@stampy.db.elephantsql.com:5432/mmrdjncn"
 }
 
 
