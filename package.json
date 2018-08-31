@@ -17,7 +17,7 @@
         "test": "mocha --require babel-core/register ./server/test/ --recursive --exit",
         "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha test/*.js",
         "cover": "istanbul cover _mocha",
-        "report": "nyc --reporter=html --reporter=text-lcov mocha --require babel-core/register ./test --exit | coveralls",
+        "report": "nyc --reporter=html --reporter=text-lcov mocha --require babel-core/register ./server/test/ --exit | coveralls",
         "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
         "delete": "node -r babel-register -r ./node_modules/dotenv/config ./server/models/dropTables"
     },
