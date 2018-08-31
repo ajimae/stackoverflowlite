@@ -15,7 +15,8 @@ server.use(bodyParser.urlencoded({
 const swaggerDocument = YAML.load(`${process.cwd()}/swagger.yaml`);
 
 server.use(session({
-	secret: process.env.SECRET,
+	//secret: process.env.SECRET,
+	secret: "shh its a secret",
 	resave: false,
 	saveUninitialized: true,
 	cookieParser: { secure: true }
