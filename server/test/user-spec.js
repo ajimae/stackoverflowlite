@@ -12,8 +12,8 @@ describe('User Route Controller', () => {
   it('should Create New User, when all parameters are complete', (done) => {
     const values = {
         name: 'jane doe',
-        email: 'janedoe400@mail.com',
-        username: 'jane400',
+        email: 'janedoe500@mail.com',
+        username: 'jane500',
         password: 123,
         confirmPass: 123
     };

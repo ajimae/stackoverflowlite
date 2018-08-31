@@ -25,7 +25,7 @@ describe('Answers Route Controller', () => {
                 done();
             });
     });
-    it('should return 500 () for Any POST /answers endpoint with an invalid token', (done) => {
+    it('should return 500 (Internal Server Error) for Any POST /answers endpoint with an invalid token', (done) => {
         const values = {
             answer: "You are jane doe"
         };
